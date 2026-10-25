@@ -19,7 +19,7 @@ spec:
           image: mysql:latest
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: "admin"
+              value: "root"
             - name: MYSQL_DATABASE
               value: "mydb"
             - name: MYSQL_USER
@@ -30,8 +30,8 @@ spec:
             - containerPort: 3306
           volumeMounts:
             - name: mysqldata
-              mountPath: /var/lib/mysql         # this is your container path from where your data will be stored
+              mountPath: /var/lib/mysql       
       volumes:
         - name: mysqldata
           persistentVolumeClaim:
-            claimName: mysql-pvc    # PVC claim name
+            claimName: mysql-pvc    
