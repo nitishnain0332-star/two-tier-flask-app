@@ -2,10 +2,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: two-tier-app-pod
+  namespace: flask-app
 spec:
   containers:
   - name: two-tier-app-pod
-    image: nitishnain0332/nain033:latest 
+    image: nitishnain0332/flask-app:latest 
     env:
       - name: MYSQL_HOST
         value: "mysql"          # this is your mysql's service clusture IP, Make sure to change it with yours

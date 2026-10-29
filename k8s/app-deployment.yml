@@ -15,18 +15,17 @@ spec:
         app: two-tier-app
     spec:
       containers:
-      - name: two-tier-app-pod
-        image: 'nitishnain0332/nain033:latest'
-        env:
-          - name: MYSQL_HOST
-            value: mysql
-          - name: MYSQL_PASSWORD
-            value: admin
-          - name: MYSQL_USER
-            value: admin
-          - name: MYSQL_DB
-            value: myDb
-        ports:
-          - containerPort: 5000
-        imagePullPolicy: Always
-
+        - name: two-tier-app
+          image: nitishnain0332/flask-app:latest
+          env:
+            - name: MYSQL_HOST
+              value: "10.96.163.187"          # this is your mysql's service clusture IP, Make sure to change it with yours-
+            - name: MSQL_PASSWORD
+              value: "admin"
+            - name: MYSQL_USER
+              value: "admin"
+            - name: MYSQL_DB
+              value: "mydb"
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
